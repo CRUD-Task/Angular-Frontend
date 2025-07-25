@@ -1,0 +1,58 @@
+<div class="container mt-4">
+  <h2>{{ isEdit ? 'Edit' : 'Add' }} Employee</h2>
+  
+  <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="firstName" 
+             [(ngModel)]="employee.firstName" name="firstName" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="lastName" 
+             [(ngModel)]="employee.lastName" name="lastName" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" 
+             [(ngModel)]="employee.email" name="email" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="phoneNumber" class="form-label">Phone Number</label>
+      <input type="tel" class="form-control" id="phoneNumber" 
+             [(ngModel)]="employee.phoneNumber" name="phoneNumber">
+    </div>
+    
+    <div class="mb-3">
+      <label for="jobTitle" class="form-label">Job Title</label>
+      <input type="text" class="form-control" id="jobTitle" 
+             [(ngModel)]="employee.jobTitle" name="jobTitle">
+    </div>
+    
+    <div class="mb-3">
+      <label for="hireDate" class="form-label">Hire Date</label>
+      <input type="date" class="form-control" id="hireDate" 
+             [(ngModel)]="employee.hireDate" name="hireDate">
+    </div>
+    
+    <div class="mb-3">
+      <label for="salary" class="form-label">Salary</label>
+      <input type="number" class="form-control" id="salary" 
+             [(ngModel)]="employee.salary" name="salary">
+    </div>
+    
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="isActive" 
+             [(ngModel)]="employee.isActive" name="isActive">
+      <label class="form-check-label" for="isActive">Active Employee</label>
+    </div>
+    
+    <button type="submit" class="btn btn-primary me-2" [disabled]="!employeeForm.valid">
+      {{ isEdit ? 'Update' : 'Save' }}
+    </button>
+    <a routerLink="/employees" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
